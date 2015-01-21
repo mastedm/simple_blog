@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
+  
+  get ':category' => 'welcome#category', 
+    constraints: lambda { |req| Category.find_by_code(req.params[:category]) }
+  
+  get 'about' => 'welcome#about'
 
 	#Casein routes
 	namespace :casein do
+		resources :categories
+		resources :settings
 		resources :articles
 	end
 
