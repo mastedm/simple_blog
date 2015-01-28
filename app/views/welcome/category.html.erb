@@ -1,3 +1,37 @@
 <section id="one">
-    <h1><%= @category.name %></h1>
+    <header class="major">
+        <h2><%= @category.name %></h2>
+    </header>    
+</section>
+
+<section id="two">
+    <header class="major">
+        <h3><%= @articles[:last_article].title %></h3>
+    </header>
+    
+    <p>
+        <span class="image left">
+            <img src="<%= @articles[:last_article].image.url(:landscape) %>" alt="" />
+        </span>
+        <p><%= @articles[:last_article].text %></p>
+    </p>
+    
+    <p><%= @articles[:last_article].text %></p>
+	<ul class="actions">
+		<li><a href="<%= article_path(@category.code, @articles[:last_article].id) %>" class="button">Читать далее</a></li>
+	</ul>
+</section>
+
+<section id="three">
+	<h2>Другие статьи</h2>
+	<div class="row">
+        <% @articles[:others].each do |article| %>
+		<article class="6u 12u$(xsmall) work-item">
+			<a href="<%= article_path(@category.code, article.id) %>" class="image fit thumb">
+                <img src="<%= article.image.url(:landscape) %>" alt="" />
+            </a>
+			<h3><%= article.title %></h3>
+		</article>
+        <% end %>
+	</div>
 </section>
