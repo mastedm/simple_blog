@@ -5,13 +5,17 @@ Rails.application.routes.draw do
   get ':category' => 'welcome#category', 
     constraints: lambda { |req| Category.find_by_code(req.params[:category]) }
   
+  get ':category/:id' => 'welcome#article', 
+    constraints: lambda { |req| Category.find_by_code(req.params[:category]) },
+    as: :article
+  
   get 'about' => 'welcome#about'
 
 	#Casein routes
 	namespace :casein do
+		resources :articles
 		resources :categories
 		resources :settings
-		resources :articles
 	end
 
   # The priority is based upon order of creation: first created -> highest priority.

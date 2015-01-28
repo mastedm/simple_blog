@@ -43,3 +43,7 @@ gem 'capistrano-passenger'
 
 gem 'casein'
 gem 'pg'
+
+gem 'carrierwave'
+gem 'haml'
+gem 'mini_magick'
