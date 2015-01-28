@@ -1,1 +1,7 @@
-= @article.title
+%section#one
+  %header.major
+    %h2= @article.title
+    %p
+      %span.image.left
+        %img{ src: @article.image.url(:landscape) }
+      = @article.text.gsub("\r\n", "</p><p>").html_safe
