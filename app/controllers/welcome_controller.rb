@@ -6,11 +6,7 @@ class WelcomeController < ApplicationController
   
   def category
     @category = Category.find_by_code params[:category]
-    
-    @articles = {
-      :last_article => @category.articles.last,
-      :others => @category.articles
-    }
+    @articles = @category.articles.order('created_at desc')
   end
   
   def article
