@@ -1,0 +1,18 @@
+%section#one
+  %header.major
+    %h2= @article.title
+  %p= @article.text.split("\r\n")[0]
+  %ul.actions
+    %li
+      %a.button{ href: article_path(@article.category.code, @article.id) } Читать
+      
+%section#two
+  %h2 Другие статьи
+  .row
+    - for i in 0 ... @articles.size
+      - article = @articles[i]
+      %article{ class: "6u#{i % 2 == 1 ? '$' : ''} 12u$(xsmall) work-item"}
+        %a.image.fit.thumb{ href: article_path(article.category.code, article.id) }
+          %img{ src: article.image.url(:landscape) }
+          %h3= article.title
+      

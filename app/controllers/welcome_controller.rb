@@ -1,18 +1,31 @@
 class WelcomeController < ApplicationController
   include ApplicationHelper
   
-  def index    
+  before_filter :set_title
+  
+  def index
+    @article  = Article.last
+    @articles = Article.where.not(:id => @article.id).last(10)    
   end
   
   def category
     @category = Category.find_by_code params[:category]
     @articles = @category.articles.order('created_at desc')
+    
+    @title = @category.name + ' - ' + @title
   end
   
   def article
     @article = Article.find params[:id]
+    @title = @article.title + ' - ' + @article.category.name + ' - ' + @title
   end
   
   def about
+  end
+  
+  private 
+  
+  def set_title
+    @title = setting(:site_name)
   end
 end
