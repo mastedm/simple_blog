@@ -5,3 +5,6 @@
       %span.image.left
         %img{ src: @article.image.url(:landscape) }
       = @article.text.gsub("\r\n", "</p><p>").html_safe
+      
+%section#two
+  = setting(:comments).html_safe

@@ -4,8 +4,6 @@
 	<thead>
 		<tr>
 			<th><%= casein_sort_link "Key", :key %></th>
-			<th><%= casein_sort_link "Value", :value %></th>
-			<th><%= casein_sort_link "Description", :description %></th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
@@ -13,8 +11,6 @@
 	<% settings.each do |setting| %>
 		<tr>
 			<td><%= casein_table_cell_link setting.key, casein_setting_path(setting) %></td>
-			<td><%= casein_table_cell_link setting.value, casein_setting_path(setting) %></td>
-			<td><%= casein_table_cell_link setting.description, casein_setting_path(setting) %></td>
 			<td class="delete">
 				<%= link_to(casein_show_row_icon("trash"), casein_setting_path(setting), :method => :delete, :data => { :confirm => "Are you sure you want to delete this setting?" }) %>
 			</td>
