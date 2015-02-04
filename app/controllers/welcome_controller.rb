@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   before_filter :set_title
   
   def index
-    @articles = Article.last(10)    
+    @articles = Article.order('created_at desc').limit(10)   
   end
   
   def category
