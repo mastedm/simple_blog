@@ -4,8 +4,7 @@ class WelcomeController < ApplicationController
   before_filter :set_title
   
   def index
-    @article  = Article.last
-    @articles = Article.where.not(:id => @article.id).last(10)    
+    @articles = Article.last(10)    
   end
   
   def category
