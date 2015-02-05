@@ -59,7 +59,7 @@ module Casein
     private
       
       def setting_params
-        params.require(:setting).permit(:key, :value, :description)
+        params.require(:setting).permit(:key, :value, :image)
       end
 
   end
