@@ -4,6 +4,6 @@
         <span class="image left">
             <%= setting_image(:avatar, :small_square) %>
         </span>
-        <%= setting(:about) %>
+        <%= setting(:about).gsub("\r\n", "</p><p>").html_safe %>
     </p>
 </section>
