@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+section p { color: black; }
+
+.yashare-auto-init a { border: 0px;}
