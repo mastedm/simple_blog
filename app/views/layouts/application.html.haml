@@ -19,6 +19,8 @@
       %p
         = setting(:intro_short)
       %ul.actions
+        %li
+          %a{ :href => '/' } Главная
         - Category.all.each do |category|
           %li
             %a{:href => "/#{category.code}"}= category.name
