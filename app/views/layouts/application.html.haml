@@ -16,14 +16,13 @@
     %header#header
       %a.image.avatar{:href => "/about"}
         = setting_image(:avatar, :small_square)
-      %p
+      %p.shadow
         = setting(:intro_short)
-      %ul.actions
-        %li
-          %a{ :href => '/' } Главная
-        - Category.all.each do |category|
-          %li
-            %a{:href => "/#{category.code}"}= category.name
+      %a.shadow{ :href => '/' } Главная
+      %br
+      - Category.all.each do |category|
+        %a.shadow{:href => "/#{category.code}"}= category.name
+        %br
     / Main
     #main
       = yield
