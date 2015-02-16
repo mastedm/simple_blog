@@ -1,4 +1,6 @@
 %section
+  %header.major
+    %h2= @category.name
   .row
     - for i in 0 ... @articles.size
       - article = @articles[i]
@@ -6,9 +8,5 @@
         %a.image.fit.thumb{ href: article_path(article.category.code, article.id) }
           %img{ src: article.image.url(:landscape) }
         %h3= article.title
-        %p
-          %b= article.created_at.strftime('%d.%m.%Y')
-          = article.text.split("\n")[0]
-          %a{ href: article_path(article.category.code, article.id) } Читать далее
           
       
