@@ -4,7 +4,7 @@
     </header>    
 	<div class="row">
         <% @articles.each do |article| %>
-		<article class="6u 12u$(xsmall) work-item">
+		<article class="4u 12u$(xsmall) work-item">
 			<a href="<%= article_path(@category.code, article.id) %>" class="image fit thumb">
                 <img src="<%= article.image.url(:landscape) %>" alt="" />
             </a>
